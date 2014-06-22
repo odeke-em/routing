@@ -10,7 +10,11 @@ if pyVersion < 3:
 else:
     byteFyer = lambda a: bytes(a, 'utf-8')
 
-import router # Local module
+try:
+    from router import acquireIndex, stepRange # Local module
+except ImportError:
+    from .router import acquireIndex, stepRange # Local module
+
 intRegCompile = re.compile('^-?\d+\.?\d+', re.UNICODE)
 
 class RouterManager:
@@ -23,7 +27,7 @@ class RouterManager:
         self.__hashBase = hashBase or 1
         self.__srvAddrList = serverAddrList
 
-        self.__rangeTable = router.stepRange(self.__hashBase, len(self.__srvAddrList))
+        self.__rangeTable = stepRange(self.__hashBase, len(self.__srvAddrList))
         self.__routingMap = dict(
             (self.__rangeTable[i], self.__srvAddrList[i]) for i in range(len(self.__rangeTable))
         )
@@ -34,7 +38,7 @@ class RouterManager:
             return self.__routingMap.get(self.__resolveIndex(qVal), None)
 
     def __resolveIndex(self, index):
-        qIndex = router.acquireIndex(self.__rangeTable, index % self.__hashBase)
+        qIndex = acquireIndex(self.__rangeTable, index % self.__hashBase)
         return self.__rangeTable[qIndex]
 
 def main():
