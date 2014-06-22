@@ -37,6 +37,9 @@ class RouterManager:
             qVal = int(qHash)
             return self.__routingMap.get(self.__resolveIndex(qVal), None)
 
+    def getRoutingAddresses(self):
+        return list(self.__routingMap.values())
+
     def __resolveIndex(self, index):
         qIndex = acquireIndex(self.__rangeTable, index % self.__hashBase)
         return self.__rangeTable[qIndex]

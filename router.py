@@ -21,7 +21,7 @@ def stepRange(base, n):
         return [i for i in range(base)] 
 
     step = stepGen(base, n) or 1
-    seq = [i for i in range(step, base, step)]
+    seq = [i for i in range(step-1, base, step)]
   
     seqLen = len(seq) 
     while seqLen > n:
