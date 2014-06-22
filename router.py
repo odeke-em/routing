@@ -4,6 +4,8 @@
 import math
 import random
 
+random.seed(100) # TODO: Find a way of sharing seed
+
 def stepGen(base, avail):
     if not (hasattr(base, '__divmod__') and hasattr(avail, '__divmod__')):
         return None
