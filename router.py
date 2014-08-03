@@ -12,7 +12,7 @@ def stepGen(base, avail):
     elif base < 0 or avail < 0:
         return None
     else:
-        return 0 if not avail else math.floor(base/avail) 
+        return 0 if not avail else int(math.floor(base/avail))
 
 def stepRange(base, n):
     if not (hasattr(base, '__divmod__') and hasattr(n, '__divmod__')):

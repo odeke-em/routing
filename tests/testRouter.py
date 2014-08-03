@@ -40,7 +40,7 @@ class TestRangeGeneration(unittest.TestCase):
         self.assertEqual(len(seq), avail)
         step = router.stepGen(base, avail)
         # Since base > avail expecting (base - step) as the last item
-        self.assertEqual(seq[-1], base-step)
+        self.assertEqual(seq[-1], base-step+1)
 
     def testProperInputBaseEqAvail(self):
         base, avail = 4, 4
@@ -80,9 +80,9 @@ class TestIndexAcquisition(unittest.TestCase):
         self.seqRange = router.stepRange(self.base, self.avail)
 
     def testRangeValues(self): 
-        expected = [3, 6, 9, 12, 15, 18]
+        expected = [2, 5, 8, 11, 14, 17]
         self.assertEqual(expected, self.seqRange)
-        self.assertEqual(2, router.acquireIndex(self.seqRange, 11))
+        self.assertEqual(3, router.acquireIndex(self.seqRange, 11))
         self.assertEqual(0, router.acquireIndex(self.seqRange, -1))
         self.assertEqual(3, router.acquireIndex(self.seqRange, 12))
         self.assertEqual(5, router.acquireIndex(self.seqRange, 20))
