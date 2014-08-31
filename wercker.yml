@@ -27,3 +27,8 @@ build:
         code: |
           echo "python version $(python --version) running"
           echo "pip version $(pip --version) running"
+
+    - script:
+        name: Unit Tests
+        code: |
+          python test.py
