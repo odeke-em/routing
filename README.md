@@ -1,3 +1,3 @@
-routing [ ![Codeship Status for odeke-em/routing](https://www.codeship.io/projects/2dabb210-fd81-0131-3861-7ac8d6a30f22/status)](https://www.codeship.io/projects/29438)
+routing [![wercker status](https://app.wercker.com/status/f74357d7f23ec57cd540f0272832d4d9/m "wercker status")](https://app.wercker.com/project/bykey/f74357d7f23ec57cd540f0272832d4d9) 
 =======
     Utilities for consistent hashing/sharding.
